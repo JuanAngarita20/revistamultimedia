@@ -1,0 +1,50 @@
+<div class="container pt-4 mt-2">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>Editar Articulo
+                        <div *ngIf ="spinnerAnim" class="spinner-border float-right" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </h3>
+                    <span *ngIf ="submited && EditarArticulo.invalid" class="mt-2">Se requiere llenar toda la informacion</span>
+                    <form class="mt-4" [formGroup]="EditarArticulo" (ngSubmit)="funcBotonFormEditar_Articulo() ">
+                        <div class="mt-4 row">
+                            <div class="col-12">
+                                <input type="text" class="d-flex justify-content-start form-control-lg col-10" 
+                                formControlName ="titulo_articulo" placeholder="Titulo Seccion">
+                            </div>
+                        </div>
+                        <div class="mt-4 row">
+                            <div class="col">
+                                <input type="text" class="d-flex justify-content-start form-control-lg col-6" 
+                                formControlName ="autor_articulo" placeholder="Autor">
+                            </div>
+                        </div>
+                        <div class="mt-4 row">
+                            <div class="col">
+                                <textarea type="text" class="form-control-lg col-12" 
+                                formControlName ="cuerpo_articulo" placeholder="Cuerpo Articulo" rows="4"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 row">
+                            <div class="col">
+                                <textarea type="text" class="form-control-lg col-12" 
+                                formControlName ="conclusion_articulo" placeholder="Conclusion Articulo" rows="4"></textarea>
+                            </div>
+                        </div>
+                        
+                        
+
+                    <div class="mt-3">
+                        <button type="button" class="btn btn-secondary btn-lg" style="margin-right: 10px" [routerLink]="['/list-articulo/',id_sec_padre]">Volver</button>
+                        <button type="submit"class="btn btn-dark btn-lg">Editar</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

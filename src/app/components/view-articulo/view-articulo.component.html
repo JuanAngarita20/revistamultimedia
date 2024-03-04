@@ -1,0 +1,49 @@
+<div class="container mt-4">
+    <div class="card mb-2">
+        <div class="card-body">
+            <span class="h3">
+                {{titulo}}
+            </span>
+
+            <div class="mt-4 row">
+                <div class="col-12">
+                    <strong class="mt-4">
+                        Autor: {{autor}}
+                    </strong>
+                </div>
+            </div>
+
+            <div class="mt-4 row">
+                <div class="col-12">
+                    {{cuerpo}}
+                </div>
+            </div>
+
+            <div *ngIf = "fileExist" class="mt-4 row ">
+                <div class="text-center">
+                    <img class="justify-content-center"[src]="file_url" />
+                </div>
+            </div>
+
+            <div class="mt-4 row">
+                <div class="col-12">
+                    {{conclusion}}
+                </div>
+            </div>
+  
+        </div>
+       
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="card mb-2">
+        <div class="card-body">
+            <button class="btn btn-primary mt-2 btn-sm btn-redo col-2"  style="margin-left: 20px"  [routerLink]="['/list-articulo/',id_sec_padre]"> Volver </button>
+        </div>
+        
+    </div>
+</div>
+
+
+

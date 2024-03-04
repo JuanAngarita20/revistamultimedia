@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3">
+                Lista de Ediciones
+            </span>
+            <button class="btn btn-dark btn-lg float-end" routerLink="/create-edicion"> Crear Nueva Edicion</button>
+            <h5  *ngIf = "ediciones.length == 0" style="margin-top: 30px">No hay Ediciones creadas aun</h5>
+            <table  *ngIf = "ediciones.length > 0" class="table table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre Edicion</th>
+                    <th>Fecha Creacion</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let edicion of ediciones, ; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{edicion.nombreEd}}</td>
+                    <td>{{edicion.fechaCreacion}}</td>
+                    <td>
+                        <button (click)="eraseEdicion(edicion.id)" class="btn btn-danger btn-sm btn-redo" style="margin-right: 10px"> Eliminar </button>
+                        <button  class="btn btn-primary btn-sm btn-redo"  style="margin-right: 10px" [routerLink]="['/editar-edicion/',edicion.id]"> Editar </button>
+                        <button class="btn btn-success btn-sm btn-redo"  [routerLink]="['/list-seccion/',edicion.id]">Secciones</button>
+                        <!--<i class="fas fa-edit fa-lg text-info " style="margin-right: 10px"></i>
+                        <i (click)="eraseEdicion(edicion.id)" class="fas fa-trash fa-lg text-danger"></i> -->
+                    </td>
+                  </tr>
+            
+                </tbody>
+              </table>
+              
+            
+        </div>
+    </div>
+</div>

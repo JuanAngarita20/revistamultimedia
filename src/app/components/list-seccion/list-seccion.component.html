@@ -1,0 +1,39 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3">
+                Lista de secciones de "{{nombre_edicion_padre}}" :
+            </span>
+            <button class="btn btn-dark btn-lg float-end" [routerLink]="['/create-seccion/', id_edicion]"> Crear nueva Seccion </button>
+            <h5  *ngIf = "secciones.length == 0" style="margin-top: 30px">No hay secciones aun creadas</h5>
+            <table *ngIf = "secciones.length > 0"class="table table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre Seccion</th>
+                    <th>Fecha Creacion</th>
+                    <th>Fecha Actualizacion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let seccion of secciones, ; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{seccion.nombre_seccion}}</td>
+                    <td>{{seccion.fechaCreacion}}</td>
+                    <td>{{seccion.fechaActualizacion}}</td>
+                    <td>
+                      <button (click)="eraseSeccion(seccion.id)"  class="btn btn-danger btn-sm btn-redo" style="margin-right: 10px"> Eliminar </button>
+                      <button  class="btn btn-primary btn-sm btn-redo"  style="margin-right: 10px" [routerLink]="['/editar-seccion/',seccion.id]"> Editar </button>
+                      <button class="btn btn-success btn-sm btn-redo" [routerLink]="['/list-articulo/',seccion.id]">Articulos</button>
+                      <!--<i class="fas fa-edit fa-lg text-info " style="margin-right: 10px"></i>
+                      <i (click)="eraseEdicion(edicion.id)" class="fas fa-trash fa-lg text-danger"></i> -->
+                  </td>
+                  </tr>
+            
+                </tbody>
+            </table>
+            <button  class="btn btn-primary mt-2 btn-sm btn-redo"  style="margin-right: 50px" routerLink="/list-edicion"> Volver a Ediciones </button>
+        </div>
+    </div>
+</div>
+
